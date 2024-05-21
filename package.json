@@ -1,0 +1,25 @@
+{
+  "name": "inventory-management",
+  "version": "1.0.0",
+  "description": "Inventory Management Server",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rakib Hassan",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.3.0",
+    "@types/cors": "^2.8.17",
+    "eslint": "^8.57.0",
+    "globals": "^15.3.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^7.10.0"
+  }
+}
