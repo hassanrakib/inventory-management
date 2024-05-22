@@ -26,12 +26,16 @@ const ProductSchema = new Schema<TProduct>({
   description: { type: String, default: 'No description.' },
   price: {
     type: Number,
-    required: true,
+    required: [true, 'Price is required'],
     min: [0, 'Price must be a positive number'],
 
     validate: {
       // ensures that price doesn't have more than two decimals
-      validator: (price: number) => Number.isInteger(price * 100),
+      validator: (price: number) => {
+        if (Number.isInteger(price)) return true;
+        if (String(price).split('.')[1].length < 3) return true;
+        return false;
+      },
       message: 'Price must have no more than two decimals',
     },
   },
@@ -42,7 +46,7 @@ const ProductSchema = new Schema<TProduct>({
   },
   tags: {
     type: [String],
-    required: true,
+    required: [true, 'Tags are required'],
     validate: {
       validator: (tags: string[]) => Boolean(tags.length),
       message: 'Provide at least a single tag',

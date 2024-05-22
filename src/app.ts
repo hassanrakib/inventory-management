@@ -2,6 +2,7 @@ import express, { Request, Response } from 'express';
 import cors from 'cors';
 import { ProductRoutes } from './app/modules/product/product.route';
 import { NotFoundRoutes } from './not-found.route';
+import { errorHandler } from './global.error';
 
 const app = express();
 
@@ -18,5 +19,8 @@ app.get('/', (req: Request, res: Response) => {
 
 // handle not found routes
 app.use(NotFoundRoutes);
+
+// global error handling
+app.use(errorHandler);
 
 export default app;
