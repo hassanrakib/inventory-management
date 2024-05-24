@@ -6,7 +6,7 @@ const productRouter = express.Router();
 // create a new product
 productRouter.post('/', ProductControllers.createProduct);
 
-// get all products
+// get all products by query
 productRouter.get('/', ProductControllers.fetchProducts);
 
 // get a product by id

@@ -1,3 +1,5 @@
+import { Document } from 'mongoose';
+
 export interface TVariant {
   type: string;
   value: string;
@@ -8,7 +10,7 @@ export interface TInventory {
   inStock: boolean;
 }
 
-export interface TProduct {
+export interface TProduct extends Document {
   name: string;
   description?: string;
   price: number;

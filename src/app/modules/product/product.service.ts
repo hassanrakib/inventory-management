@@ -15,6 +15,20 @@ const retrieveProductsFromDB = async () => {
   return await Product.find();
 };
 
+// search using search term
+const searchProductsInDB = async (searchTerm: string) => {
+  return await Product.aggregate([
+    {
+      $search: {
+        text: {
+          query: searchTerm,
+          path: ['name', 'description'],
+        },
+      },
+    },
+  ]);
+};
+
 const retrieveAProductByIdFromDB = async (productId: string) => {
   // retrieve
   return await Product.findById(productId);
@@ -39,6 +53,7 @@ const deleteAProductByIdFromDB = async (productId: string) => {
 export const ProductServices = {
   saveProductToDB,
   retrieveProductsFromDB,
+  searchProductsInDB,
   retrieveAProductByIdFromDB,
   updateAProductByIdInDB,
   deleteAProductByIdFromDB,

@@ -35,7 +35,14 @@ const fetchProducts = async (
   next: NextFunction
 ) => {
   try {
-    const data = await ProductServices.retrieveProductsFromDB();
+    let data: TProduct[];
+    const { searchTerm } = req.query;
+    if (typeof searchTerm === 'string') {
+      // do search
+      data = await ProductServices.searchProductsInDB(searchTerm);
+    } else {
+      data = await ProductServices.retrieveProductsFromDB();
+    }
     res.status(200).json({
       success: true,
       message: 'Products fetched successfully!',
