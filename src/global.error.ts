@@ -11,7 +11,12 @@ export const errorHandler = (
   if (res.headersSent) {
     return next(err);
   }
+
+  console.log(err);
   res
     .status(500)
-    .json({ success: false, message: (err as Error)?.message, error: err });
+    .json({
+      success: false,
+      message: (err as Error)?.message || 'Something went wrong!',
+    });
 };
