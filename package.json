@@ -4,8 +4,9 @@
   "description": "Inventory Management Server",
   "main": "server.js",
   "scripts": {
-    "start": "node dist/server.ts",
+    "start": "node dist/server.js",
     "dev": "tsnd --respawn src/server.ts",
+    "build": "npx tsc",
     "lint": "npx eslint src/",
     "format": "prettier --write src/",
     "test": "echo \"Error: no test specified\" && exit 1"

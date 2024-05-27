@@ -9,9 +9,11 @@ async function main() {
 
     // start the server
     app.listen(config.port, () => {
+      // eslint-disable-next-line no-console
       console.log(`Server running in ${config.port} port...`);
     });
   } catch (err: unknown) {
+    // eslint-disable-next-line no-console
     console.log((err as Error)?.message);
   }
 }

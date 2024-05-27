@@ -6,7 +6,7 @@ const OrderSchema = new Schema<TOrder>({
     type: String,
     required: [true, 'Email is missing in the order details'],
     match: [
-      /^[a-z\d\._-]+@[a-z\d\._-]+\.[a-z]{2,6}$/,
+      /^[a-z\d\._-]+@[a-z\d\._-]+\.[a-z]{2,6}$/, //eslint-disable-line no-useless-escape
       'The email is not valid',
     ],
     trim: true,

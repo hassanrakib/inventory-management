@@ -32,6 +32,7 @@ const saveOrderToDB = async (
   return await Order.create(orderFromClient);
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const getOrdersFromDB = async (query: Record<string, any>) => {
   return await Order.find(query);
 };
